@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Borang</title>
+  <link rel="stylesheet" href="formstyle.css">
+  <link rel="icon" type="image/png" href="images/form-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <!-- Fullscreen background wrapper -->
+  <div class="form-hero">
+    <div class="overlay"></div>
+
+    <!-- Reuse Home Page Navigation -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="images/uitm zakat.jpg" alt="UiTM Logo">
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="syarat.html">Syarat</a></li>
+        <li><a href="form.html" class="active">Borang Zakat</a></li>
+        <li><a href="profil.html">Profil</a></li>
+      </ul>
+    </nav>
+
+    <!-- Form Content -->
+    <div class="form-container">
+      <h2>Borang Permohonan Bantuan Zakat UiTM</h2>
+      <form id="zakatForm">
+        <div class="user-details">
+          <fieldset>
+            <legend>BUTIR-BUTIR PERIBADI</legend>
+          <br>
+          <div class="input-box">
+            <span class="details">Nama Penuh:</span>
+            <input type="text" id="fullName" placeholder="Masukkan nama penuh" required>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">No. Kad Pengenalan:</span>
+            <input type="text" id="icNumber" placeholder="Contoh: 021009XXXXXX" required>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">No. Pelajar:</span>
+            <input type="text" id="studentId" placeholder="Masukkan nombor Pelajar" required>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">Fakulti: </span>
+            <select id="faculty" required>
+              <option value="">-- Sila Pilih --</option>
+              <option>Fakulti Alam Bina</option>
+              <option>Fakulti Filem, Teater dan Animasi</option>
+              <option>Fakulti Kejuruteraan Awam</option>
+              <option>Fakulti Kejuruteraan Eletrik</option>
+              <option>Fakulti Kejuruteraan Kimia</option>
+              <option>Fakulti Kejuruteraan Mekanikal</option>
+              <option>Fakulti Muzik</option>
+              <option>Fakulti Seni Lukis dan Seni Reka</option>
+              <option>Fakulti Sains Komputer dan Matematik</option>
+              <option>Fakulti Sains Maklumat</option>
+            </select>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">Kod Kursus: </span>
+            <input type="text" id="courseCode" placeholder="Contoh: CS240" required>
+          </div>
+          <br>
+          <div class="gender-details">
+              <span class="gender-title">Jantina:</span>
+              <div class="category"><br>
+                <label for="male">
+                  <input type="radio" name="gender" id="male" value="Lelaki" required>
+                  <span class="dot one"></span>
+                  <span class="gender">Lelaki</span>     
+                </label>
+                <label for="female">
+                  <input type="radio" name="gender" id="female" value="Perempuan">
+                  <span class="dot two"></span>
+                  <span class="gender">Perempuan</span>
+                </label>
+              </div>
+            </div>
+          <br><br>
+          <div class="input-box">
+            <span class="details">Semester/Bahagian: </span>
+            <select id="semester" required>
+              <option value="">-- Sila Pilih --</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">Sesi: </span>
+            <input type="text" id="session" placeholder="Masukkan sesi semasa" required>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">Negeri Asal: </span>
+            <select id="state" required>
+              <option value="">-- Sila Pilih --</option>
+              <option>Johor</option>
+              <option>Kedah</option>
+              <option>Kelantan</option>
+              <option>Melaka</option>
+              <option>Negeri Sembilan</option>
+              <option>Pahang</option>
+              <option>Perak</option>
+              <option>Perlis</option>
+              <option>Pulau Pinang</option>
+              <option>Sabah</option>
+              <option>Sarawak</option>
+              <option>Terengganu</option>
+            </select>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">No. Akaun Bank & Bank: </span>
+            <input type="text" id="bankAccount" placeholder="Contoh: 02XXXXXX Bank Islam" required>
+          </div>
+          <br>
+          <div class="input-box">
+            <span class="details">No. Telefon:</span>
+            <input type="text" id="phone" placeholder="Contoh: 0123456789" required>
+          </div>
+          <br>
+        </div>
+
+        <div class="button">
+          <input type="submit" id="submit" value="Hantar">
+        </div>
+      </form>
+    </div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <p>© 2025 | Universiti Teknologi MARA | All rights reserved.</p>
+  </div>
+</footer>
+  </div>
+
+<script src="formscript.js"></script>
+</body>
+</html>

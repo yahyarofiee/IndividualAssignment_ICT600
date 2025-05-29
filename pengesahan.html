@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pengesahan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .receipt-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .receipt-container:hover {
+      transform: translateY(-5px);
+    }
+    .receipt-container h2 {
+      color: #4b0082;
+      font-size: 24px;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #e0e7ff;
+      padding-bottom: 10px;
+    }
+    .receipt-details {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .receipt-details p {
+      margin: 10px 0;
+      text-align: left;
+      font-size: 16px;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+    }
+    .receipt-details p span:first-child {
+      font-weight: bold;
+      color: #4b0082;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .buttons button {
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .buttons .print-btn {
+      background: #4b0082;
+      color: white;
+    }
+    .buttons .print-btn:hover {
+      background: #5e00a0;
+      transform: scale(1.05);
+    }
+    .buttons .back-btn {
+      background: #d3d3d3;
+      color: #333;
+    }
+    .buttons .back-btn:hover {
+      background: #c0c0c0;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="receipt-container">
+    <h2>Pengesahan Permohonan Bantuan Zakat UiTM</h2>
+    <div class="receipt-details" id="receiptDetails">
+      <!-- Data will be populated here by JavaScript -->
+    </div>
+    <div class="buttons">
+      <button class="print-btn" onclick="window.print()">Cetak Pengesahan</button>
+      <button class="back-btn" onclick="window.location.href='form.html'">Kembali</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to get URL parameters
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param) || 'Tidak Disediakan';
+    }
+
+    // Get current date and time
+    function getCurrentDateTime() {
+      const now = new Date();
+      return now.toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' });
+    }
+
+    // Populate receipt details
+    function displayReceipt() {
+      const details = document.getElementById('receiptDetails');
+      const data = {
+        fullName: getQueryParam('fullName'),
+        icNumber: getQueryParam('icNumber'),
+        studentId: getQueryParam('studentId'),
+        faculty: getQueryParam('faculty'),
+        courseCode: getQueryParam('courseCode'),
+        gender: getQueryParam('gender'),
+        semester: getQueryParam('semester'),
+        session: getQueryParam('session'),
+        state: getQueryParam('state'),
+        bankAccount: getQueryParam('bankAccount'),
+        phone: getQueryParam('phone'),
+        timestamp: getCurrentDateTime()
+      };
+
+      let html = `
+        <p><span>Nama Penuh</span> <span>${data.fullName}</span></p>
+        <p><span>No. Kad Pengenalan</span> <span>${data.icNumber}</span></p>
+        <p><span>No. Pelajar</span> <span>${data.studentId}</span></p>
+        <p><span>Fakulti</span> <span>${data.faculty}</span></p>
+        <p><span>Kod Kursus</span> <span>${data.courseCode}</span></p>
+        <p><span>Jantina</span> <span>${data.gender}</span></p>
+        <p><span>Semester/Bahagian</span> <span>${data.semester}</span></p>
+        <p><span>Sesi</span> <span>${data.session}</span></p>
+        <p><span>Negeri Asal</span> <span>${data.state}</span></p>
+        <p><span>No. Akaun Bank & Bank</span> <span>${data.bankAccount}</span></p>
+        <p><span>No. Telefon</span> <span>${data.phone}</span></p>
+        <p><span>Tarikh & Masa Penyerahan</span> <span>${data.timestamp}</span></p>
+      `;
+      details.innerHTML = html;
+    }
+
+    // Call the function when the page loads
+    window.onload = displayReceipt;
+  </script>
+</body>
+</html>
